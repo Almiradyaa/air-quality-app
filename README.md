@@ -1,16 +1,43 @@
-# air_quality_app
+| Keterangan | Detail |
+| :--- | :--- |
+| **Nama** | Dita Ayodya Al Mira |
+| **NIM** | D121241008 |
+| **Kelas** | Pemrograman Mobile B |
 
-A new Flutter project.
+# Air Quality App
 
-## Getting Started
+Aplikasi mobile berbasis **Flutter** untuk memantau indeks kualitas udara (*Air Quality Index* / AQI) secara *real-time* di berbagai kota. Aplikasi ini dirancang untuk menerapkan konsep pengambilan data dari REST API eksternal, penanganan antarmuka asinkron (*Asynchronous UI*), serta penyimpanan data lokal di perangkat pengguna.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## Fitur Utama
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. **Pemantauan Kualitas Udara Real-Time (REST API)**
+   - Mengambil data indeks kualitas udara (AQI) terkini berdasarkan nama kota dari layanan Public API (WAQI / IQAir / OpenWeather).
+2. **Asynchronous UI yang Responsif**
+   - Menggunakan widget `FutureBuilder` untuk mengelola dan menampilkan status antarmuka secara dinamis pada kondisi **Loading** (menunggu respon server), **Success** (data berhasil ditampilkan), dan **Error** (gagal memuat data atau kota tidak ditemukan)[cite: 6].
+3. **Penyimpanan Data Lokal (Local Storage)**
+   - Menyimpan preferensi pengguna secara lokal menggunakan `SharedPreferences` (untuk mengingat kota terakhir yang dicari) atau `SQLite` (untuk menyimpan daftar riwayat pencarian)[cite: 6].
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## Teknologi & Paket yang Digunakan
+
+* **Framework:** [Flutter](https://flutter.dev/) (Dart)[cite: 1, 4]
+* **Networking:** `http` / `dio` (untuk komunikasi REST API)
+* **Local Storage:** `shared_preferences` / `sqflite`[cite: 6]
+* **State & Async Handling:** `FutureBuilder`[cite: 6]
+
+---
+
+## Struktur Proyek
+
+```text
+air_quality_app/
+├── android/            # Konfigurasi platform Android (Kotlin)
+├── ios/                # Konfigurasi platform iOS
+├── lib/                # Kode sumber utama aplikasi Flutter
+│   └── main.dart       # Entry point & UI utama aplikasi
+├── test/               # Pengujian unit & widget
+├── pubspec.yaml        # Daftar dependensi dan aset proyek
+└── README.md           # Dokumentasi proyek
